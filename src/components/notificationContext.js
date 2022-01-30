@@ -10,7 +10,7 @@ export function useNotificationUIContext() {
 export const NotificationUIConsumer = NotificationUIContext.Consumer;
 
 export function NotificationUIContextUIProvider({ children }) {
-    const NotificationTime = 10000
+    const NotificationTime = 5000
     const [position, setPosition] = useState('top-left');
     const [list, setList] = useState([]);
     useEffect(() => {
