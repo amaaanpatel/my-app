@@ -11,6 +11,7 @@ export const NotificationUIConsumer = NotificationUIContext.Consumer;
 
 export function NotificationUIContextUIProvider({ children }) {
     const NotificationTime = 10000
+    const [position, setPosition] = useState('top-left');
     const [list, setList] = useState([]);
     useEffect(() => {
         if (list.length > 0) {
@@ -51,6 +52,7 @@ export function NotificationUIContextUIProvider({ children }) {
             type: data.type,
             position: data.container
         }
+        setPosition(data.container)
         setList([...list, toastProperties]);
     }
     const removeNotification = () => {
@@ -72,7 +74,9 @@ export function NotificationUIContextUIProvider({ children }) {
         list: list,
         customNotify: setCustomNotification,
         removeAllCustomNotification:removeAllCustomNotification,
-        removeCustomById:removeCustomById
+        removeCustomById:removeCustomById,
+        position :position
+
         
     };
     return (

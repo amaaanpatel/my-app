@@ -9,13 +9,14 @@ const Custom = (props) => {
     return {
       list: notificationUIContext.list,
       remove: notificationUIContext.remove,
-      removeCustomById:notificationUIContext.removeCustomById
+      removeCustomById:notificationUIContext.removeCustomById,
+      position:notificationUIContext.position
     };
   }, [notificationUIContext]);
 
     return (
         <>
-            <div className={`notification-container `}>
+            <div className={`notification-container ${notificationUIProps.position}`}>
                 {
                     notificationUIProps.list.map((toast, i) =>
                         <div
